@@ -1,0 +1,25 @@
+{
+  "name": "clocknotes-waitlist",
+  "version": "1.0.0",
+  "description": "A waitlist landing page for the ClockNotes app, designed for independent gig workers and freelance professionals.",
+  "main": "public/index.html",
+  "scripts": {
+    "start": "live-server public",
+    "build": "echo 'Build step can be added here'",
+    "deploy": "echo 'Deploy step can be added here'"
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  },
+  "keywords": [
+    "clocknotes",
+    "waitlist",
+    "freelancers",
+    "time tracking"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
