@@ -4,10 +4,11 @@
   --primary-light: #ffa246;
   --primary-dark: #c23700;
   --primary: #ff641c;
+  --foreground: #111d37;
   --color-gray-100: #f3f4f6;
   --color-gray-300: #d1d5db;
   --color-gray: #4b5563;
-  --color-gray-900: #111827;
+  --color-gray-700: #33363a;
   --color-pink-200: #fbcfe8;
   --color-red-500: #ef4444;
   --color-red-700: #b91c1c;
@@ -44,7 +45,7 @@ body {
   font-family: "Ubuntu", ui-sans-serif, system-ui, sans-serif;
   line-height: 1.5;
   background-color: var(--color-gray-100);
-  color: var(--color-gray-900);
+  color: var(--color-gray-700);
 }
 
 a {
@@ -195,7 +196,7 @@ textarea {
 .hero-headline {
   font-size: 1.875rem;
   font-weight: 700;
-  color: var(--color-gray-900);
+  color: var(--foreground);
   margin-bottom: 1rem;
   line-height: 1.25;
 }
@@ -649,7 +650,7 @@ textarea {
   padding: 0.75rem 1rem;
   border-radius: var(--border-radius-lg);
   border: none;
-  color: var(--color-gray-900);
+  color: var(--foreground);
 }
 
 .cta-input:focus {
@@ -720,15 +721,14 @@ textarea {
 /* Footer */
 .main-footer {
   background-color: var(--color-gray-100);
-  padding: 3rem 0;
-  margin-top: 5rem;
+  padding: 2rem 0;
+  margin-top: 4rem;
 }
 
 .footer-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 2.5rem;
 }
 
 .footer-logo-container {
@@ -769,6 +769,18 @@ textarea {
   height: 1.5rem;
 }
 
+.footer-links a {
+  font-size: 0.875rem;
+  color: var(--color-gray);
+  transition: color 0.2s;
+  padding: 0.25rem 0;
+  margin: 0 0.5rem;
+}
+.footer-links a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
 /* Integrations section */
 .integrations-section {
   padding: 4rem 0;
@@ -801,7 +813,7 @@ textarea {
 .integration-category-title {
   font-size: 1.125rem;
   font-weight: 600;
-  color: var(--color-gray-900);
+  color: var(--foreground);
   margin-bottom: 1.25rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--color-gray-100);
