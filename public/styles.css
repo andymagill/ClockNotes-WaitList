@@ -64,6 +64,9 @@ textarea {
   font-family: inherit;
 }
 
+.hide {
+  display: none;
+}
 /* Layout */
 .app-container {
   width: 100%;
@@ -90,18 +93,37 @@ textarea {
 /* Header styles */
 .main-header {
   padding: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100; /* Ensures header appears on top of other elements */
+  background-color: transparent;
 }
 
 .header-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 1rem 2rem;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
   gap: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease;
+}
+
+.logo-link:hover {
+  transform: scale(1.05);
 }
 
 .logo-icon {
@@ -146,21 +168,7 @@ textarea {
 
 /* Main content area */
 .main-content {
-  margin-top: 1rem;
-}
-
-/* Hero section background */
-.hero-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z' stroke='rgba(255, 100, 28, 0.2)' stroke-width='1.5'%3E%3C/path%3E%3Cpath d='M12 6V12L16 14' stroke='rgba(255, 100, 28, 0.15)' stroke-width='1.5'%3E%3C/path%3E%3C/svg%3E");
-  background-size: 90vmin;
-  opacity: 0.4;
-  pointer-events: none;
-  animation: slide-background 40s linear infinite;
+  
 }
 
 @keyframes slide-background {
@@ -175,41 +183,46 @@ textarea {
 /* Update hero section to have position relative */
 .hero-section {
   position: relative;
-  overflow: hidden;
-  border-radius: var(--border-radius-xl);
-  padding: 3rem 2rem;
+  padding: 6rem 2rem 3rem 2rem;
   margin-bottom: 5rem;
+  z-index: 1;
+
+  background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z' stroke='rgba(255, 100, 28, 0.2)' stroke-width='1.5'%3E%3C/path%3E%3Cpath d='M12 6V12L16 14' stroke='rgba(255, 100, 28, 0.15)' stroke-width='1.5'%3E%3C/path%3E%3C/svg%3E");
+  background-size: 90vmin;
+  animation: slide-background 40s linear infinite;
 }
 
-.hero-section {
+.hero-description{
+  margin: 2rem auto;
+}
+.hero-headline-highlight {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.hero-container{
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   align-items: center;
   gap: 2rem;
-  margin-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .hero-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 .hero-content {
+  position: relative;
   width: 100%;
 }
 
-.hero-headline {
-  font-size: 1.875rem;
-  font-weight: 700;
-  color: var(--foreground);
-  margin-bottom: 1rem;
-  line-height: 1.25;
-}
-
-.hero-headline-highlight {
-  color: var(--primary);
-}
-
-.hero-description {
-  font-size: 1.125rem;
-  color: var(--color-gray);
-  margin-bottom: 2rem;
-  line-height: 1.625;
+.demo-container {
+  position: relative;
+  width: 100%;
+  z-index: 10; /* Ensure demo appears above background */
 }
 
 /* Form styles */
@@ -287,6 +300,7 @@ textarea {
 .demo-container {
   position: relative;
   width: 100%;
+  z-index: 10; /* Ensure demo appears above background */
 }
 
 .demo-content {
@@ -512,7 +526,7 @@ textarea {
 .feature-icon-container {
   width: 3.5rem;
   height: 3.5rem;
-  border-radius: var(--border-radius-full);
+  border-radius: var (--border-radius-full);
   background-color: var(--primary-light);
   display: flex;
   align-items: center;
@@ -616,7 +630,6 @@ textarea {
 
 .cta-container {
   background-color: var(--primary);
-  border-radius: var(--border-radius-2xl);
   padding: 2rem;
   text-align: center;
   color: white;
@@ -734,8 +747,13 @@ textarea {
 .footer-logo-container {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
   margin-bottom: 1.5rem;
+}
+
+.footer-logo-container .logo-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .footer-logo {
@@ -777,118 +795,8 @@ textarea {
   margin: 0 0.5rem;
 }
 .footer-links a:hover {
-  color: var(--primary);
+  color: var (--primary);
   text-decoration: underline;
-}
-
-/* Integrations section */
-.integrations-section {
-  padding: 4rem 0;
-  background-color: var(--color-gray-100);
-  border-radius: var(--border-radius-2xl);
-  margin: 4rem 0;
-}
-
-.integration-categories {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.integration-category {
-  background-color: white;
-  padding: 1.5rem;
-  border-radius: var(--border-radius-xl);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--color-gray-100);
-  transition: var(--transition-medium);
-}
-
-.integration-category:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-0.25rem);
-}
-
-.integration-category-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--foreground);
-  margin-bottom: 1.25rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--color-gray-100);
-}
-
-.integration-tools {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-  gap: 1rem;
-}
-
-.integration-tool {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.integration-icon-container {
-  width: 3rem;
-  height: 3rem;
-  border-radius: var(--border-radius-lg);
-  background-color: var(--primary-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: var(--transition-fast);
-}
-.integration-icon-container i {
-  font-size: 1.5rem;
-  text-align: center;
-}
-
-a.integration-icon-container:hover {
-  background-color: var(--primary);
-  transform: scale(1.1);
-}
-
-.integration-icon {
-  width: 1.5rem;
-  height: 1.5rem;
-  color: white;
-}
-
-.integration-name {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--color-gray);
-  text-align: center;
-}
-
-.integration-cta {
-  margin-top: 2.5rem;
-  text-align: center;
-  color: var(--color-gray);
-}
-
-.integration-cta-link {
-  display: inline-block;
-  margin-top: 0.75rem;
-  color: var(--primary);
-  font-weight: 500;
-  transition: var(--transition-fast);
-}
-
-.integration-cta-link:hover {
-  color: var(--primary-dark);
-  text-decoration: underline;
-}
-
-/* Add responsive styles for integrations section */
-@media (min-width: 768px) {
-  .integration-categories {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
 
 /* Responsive styles */
@@ -901,13 +809,10 @@ a.integration-icon-container:hover {
     display: none;
   }
 
-  .main-content {
-    margin-top: 2rem;
-  }
-
   .hero-section {
     flex-direction: row;
     gap: 3rem;
+    padding-top: 140px; /* Extra padding on larger screens */
   }
 
   .hero-content {
@@ -946,10 +851,12 @@ a.integration-icon-container:hover {
 
 @media (min-width: 1024px) {
   .hero-content {
+    flex-basis: 60%;
     width: 60%;
   }
 
   .demo-container {
+    flex-basis: 40%;
     width: 40%;
   }
 
@@ -964,4 +871,17 @@ a.integration-icon-container:hover {
   .testimonials-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+/* Add a subtle background to the header on scroll */
+.header-scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.header-scrolled .logo-text,
+.header-scrolled .nav-link {
+  color: #333;
+  text-shadow: none;
 }

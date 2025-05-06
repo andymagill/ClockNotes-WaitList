@@ -3,41 +3,52 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('waitlist-form');
+    if (form) {
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const comments = document.getElementById('comments').value;
     
-    form.addEventListener('submit', async function(event) {
-        event.preventDefault();
-        
-        const email = document.getElementById('email').value;
-        const comments = document.getElementById('comments').value;
-
-        if (!email) {
-            alert('Please enter your email address.');
-            return;
-        }
-
-        const data = {
-            email: email,
-            comments: comments
-        };
-
-        try {
-            const response = await fetch('/api/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
-
-            if (response.ok) {
-                alert('Thank you for joining the waitlist!');
-                form.reset();
-            } else {
+            if (!email) {
+                alert('Please enter your email address.');
+                return;
+            }
+    
+            const data = {
+                email: email,
+                comments: comments
+            };
+    
+            try {
+                const response = await fetch('/api/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+    
+                if (response.ok) {
+                    alert('Thank you for joining the waitlist!');
+                    form.reset();
+                } else {
+                    alert('There was an error submitting your information. Please try again later.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
                 alert('There was an error submitting your information. Please try again later.');
             }
-        } catch (error) {
-            console.error('Error:', error);
-            alert('There was an error submitting your information. Please try again later.');
-        }
-    });
+        });
+    }
+    
+    // Mobile menu functionality
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const mainNav = document.querySelector('.main-nav');
+    
+    if (mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+    }
 });
