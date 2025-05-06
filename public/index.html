@@ -3,7 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ClockNotes</title>
+    <title>ClockNotes - Time Tracking for Freelance and Gig Workers</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="ClockNotes - Time Tracking for Freelance and Gig Workers">
+    <meta name="description" content="Effortless time tracking designed specifically for freelancers and gig workers. Stop guessing, start earning with ClockNotes!">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://clocknotes.com/">
+    <meta property="og:title" content="ClockNotes - Time Tracking for Freelance and Gig Workers">
+    <meta property="og:description" content="Effortless time tracking designed specifically for freelancers and gig workers. Stop guessing, start earning!">
+    <meta property="og:image" content="https://clocknotes.com/images/clocknotes-social-share.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://clocknotes.com/">
+    <meta property="twitter:title" content="ClockNotes - Time Tracking for Freelance and Gig Workers">
+    <meta property="twitter:description" content="Effortless time tracking designed specifically for freelancers and gig workers. Stop guessing, start earning!">
+    <meta property="twitter:image" content="https://clocknotes.com/images/clocknotes-social-share.png">
+
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -76,7 +95,7 @@
                                 like you. Get a crystal-clear picture of your workday and boost your earning potential!
                             </p>
                             <div class="signup-form-container">
-                                <form class="signup-form">
+                                <form class="signup-form" id="waitlist-form">
                                     <div class="form-group">
                                         <label for="email" class="form-label">Join our Waitlist</label>
                                         <input
@@ -382,7 +401,7 @@
                             </summary>
                             <p class="faq-answer">
                                 Clocknotes will launch as a website and Progressive Web App (PWA), so you can
-                                use it on any device with a web browser. 
+                                use it on any device with a web browser.
                             </p>
                         </details>
                         <details class="faq-item">
@@ -405,7 +424,7 @@
                             </summary>
                             <p class="faq-answer">
                                 We'll have a generous free plan, and a premium version with enhanced functionality at $3.99/month
-                                (or $39.99 if you pay yearly). 
+                                (or $39.99 if you pay yearly).
                             </p>
                         </details>
                     </div>
@@ -418,7 +437,7 @@
                             Join our friendly waitlist today and get special early access to ClockNotes, plus a
                             sweet 30% discount for your first 3 months!
                         </p>
-                        <form class="cta-form">
+                        <form class="cta-form" id="cta-waitlist-form">
                             <input
                                 type="email"
                                 placeholder="Drop your email here"
