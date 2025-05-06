@@ -123,13 +123,12 @@ textarea {
   transition: transform 0.2s ease;
 }
 
-.logo-link:hover {
+a.logo-link:hover {
   transform: scale(1.05);
 }
 
 .logo-icon {
-  width: 2rem;
-  height: 2rem;
+  height: 3rem;
   color: var(--primary);
 }
 
